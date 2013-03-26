@@ -34,6 +34,7 @@
         style="@style/TextoAsteroides.Botones"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="lanzarPreferencias"
         android:text="@string/configurar" />
 
     <Button
@@ -41,6 +42,7 @@
         style="@style/TextoAsteroides.Botones"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="lanzarAcercaDe"
         android:text="@string/acerca_de" />
 
     <Button
@@ -48,6 +50,7 @@
         style="@style/TextoAsteroides.Botones"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/salir" />
+        android:onClick="lanzarPuntuaciones"
+        android:text="@string/puntuaciones" />
 
 </LinearLayout>
