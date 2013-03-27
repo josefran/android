@@ -35,12 +35,14 @@
                 android:id="@+id/button1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="lanzarJuego"
                 android:text="@string/jugar" />
 
             <Button
                 android:id="@+id/button2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="lanzarPreferencias"
                 android:text="@string/configurar" />
 
         </TableRow>
@@ -54,12 +56,14 @@
                 android:id="@+id/button3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="lanzarAcercaDe"
                 android:text="@string/acerca_de" />
 
             <Button
                 android:id="@+id/button4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="lanzarPuntuaciones"
                 android:text="@string/puntuaciones" />
 
         </TableRow>
