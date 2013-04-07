@@ -2,6 +2,7 @@ package com.example.asteroides;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,6 +14,7 @@ public class Asteroides extends Activity {
 
 	public static AlmacenPuntuaciones almacen = new AlmacenPuntuacionesArray();
 	private Button bAcercaDe;
+	private MediaPlayer mp;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -25,8 +27,29 @@ public class Asteroides extends Activity {
 				lanzarAcercaDe(null);
 			}
 		});
+
+		mp = MediaPlayer.create(this, R.raw.audio);
+		mp.start();
 	}
 
+	//	@Override 
+	//	protected void onStop() {
+	//		super.onStop();
+	//		mp.pause();
+	//	}
+
+	@Override 
+	protected void onPause() {
+		super.onPause();
+		mp.pause();
+
+	}
+
+	@Override 
+	protected void onResume() {
+		super.onResume();
+		mp.start();
+	}
 
 	//	@Override
 	//	public boolean onCreateOptionsMenu(Menu menu) {
@@ -80,6 +103,23 @@ public class Asteroides extends Activity {
 		finish();
 	}
 
+	@Override
+	protected void onSaveInstanceState(Bundle estadoGuardado){
+		super.onSaveInstanceState(estadoGuardado);
+		if (mp != null) {
+			int pos = mp.getCurrentPosition();
+			estadoGuardado.putInt("posicion", pos);
+		}
+	}
+
+	@Override
+	protected void onRestoreInstanceState(Bundle estadoGuardado){
+		super.onRestoreInstanceState(estadoGuardado);
+		if (estadoGuardado != null && mp != null) {
+			int pos = estadoGuardado.getInt("posicion");
+			mp.seekTo(pos);
+		}
+	}
 
 }
 

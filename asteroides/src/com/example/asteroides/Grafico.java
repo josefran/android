@@ -59,6 +59,10 @@ class Grafico {
 		return(distancia(g) < (radioColision+g.radioColision));
 	}
 
+	public static int getMaxVelocidad() {
+		return MAX_VELOCIDAD;
+	}
+
 
 	public Drawable getDrawable() {
 		return drawable;
